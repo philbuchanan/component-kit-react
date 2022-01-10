@@ -1,7 +1,7 @@
 {
-	"name": "react-app",
+	"name": "component-kit-react",
 	"version": "1.0.0",
-	"description": "A React app starter bolerplate.",
+	"description": "React version of Component Kit.",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
