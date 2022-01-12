@@ -7,7 +7,8 @@
 		margin-bottom: 24px;
 	}
 
-	.c-checkbox-control + .c-checkbox-control {
+	.c-checkbox-control + .c-checkbox-control,
+	.c-radio-control + .c-radio-control {
 		margin-top: -18px;
 	}
 }

@@ -7,6 +7,7 @@ import { __ } from './i18n';
 import {
 	CheckboxControl,
 	Fieldset,
+	RadioControl,
 	TextControl,
 } from './components';
 
@@ -76,6 +77,24 @@ const App = () => {
 				required={ true }
 				onChange={ (checked) => console.log(checked) }
 			/>
+			<Fieldset
+				label={ __('Radio Group') }
+			>
+				<RadioControl
+					label={ __('Email') }
+					checked={ true }
+					onChange={ (checked) => console.log(checked) }
+				/>
+				<RadioControl
+					label={ __('Phone') }
+					help={ __('You’ll only receive calls between 9 AM and 5 PM.') }
+					onChange={ (checked) => console.log(checked) }
+				/>
+				<RadioControl
+					label={ __('None') }
+					onChange={ (checked) => console.log(checked) }
+				/>
+			</Fieldset>
 		</>
 	);
 };
