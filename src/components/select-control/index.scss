@@ -1,0 +1,17 @@
+.c-select-control__input {
+	background-position: center right 10px;
+	background-repeat: no-repeat;
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 4"><polygon points="8 0 4 4 0 0 8 0" fill="%23000"/></svg>');
+	background-size: 8px 4px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	-webkit-padding-end: 30px;
+	   -moz-padding-end: 30px;
+
+	&::-ms-expand {
+		display: none;
+	}
+}

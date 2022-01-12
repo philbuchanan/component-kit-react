@@ -8,6 +8,7 @@ import {
 	CheckboxControl,
 	Fieldset,
 	RadioControl,
+	SelectControl,
 	TextControl,
 } from './components';
 
@@ -54,6 +55,17 @@ const App = () => {
 				help={ __('Usernames cannot be changed.') }
 				value={ 'cchapman' }
 				disabled={ true }
+			/>
+			<SelectControl
+				label={ __('Select') }
+				help={ __('The province you reside in.') }
+				value="ON"
+				options={ [
+					{ label: __('Alberta'), value: 'AB' },
+					{ label: __('British Columbia'), value: 'BC' },
+					{ label: __('Ontario'), value: 'ON' },
+				] }
+				onChange={ (value) => console.log(value) }
 			/>
 			<Fieldset
 				label={ __('Checkbox Group') }

@@ -1,15 +1,16 @@
 import React, { forwardRef } from 'react';
 
-import { BaseControl, VisuallyHidden } from '../';
+import { BaseControl } from '../';
 import { useInstanceId } from '../../hooks/';
-import { classnames } from '../../utils/';
 
 import './index.scss';
 
-const CheckboxControl = (
+const SelectControl = (
 	{
 		label,
-		checked,
+		hideLabelFromVision,
+		value,
+		options = [],
 		help,
 		error,
 		required,
@@ -19,8 +20,8 @@ const CheckboxControl = (
 	},
 	ref
 ) => {
-	const instanceId = useInstanceId(CheckboxControl);
-	const id = `checkbox-control-${ instanceId }`;
+	const instanceId = useInstanceId(SelectControl);
+	const id = `select-control-${ instanceId }`;
 
 	const onChangeValue = (event) => onChange(event.target.value);
 
@@ -37,16 +38,17 @@ const CheckboxControl = (
 	return (
 		<BaseControl
 			id={ id }
-			className={ classnames(className, 'c-checkbox-control') }
+			className={ className }
+			label={ label }
+			hideLabelFromVision={ hideLabelFromVision }
 			help={ help }
 			required={ required }
 			error={ error }
 		>
-			<input
-				className="c-checkbox-control__input"
-				type="checkbox"
+			<select
+				className="c-control__input c-select-control__input"
 				id={ id }
-				checked={ checked }
+				value={ value }
 				onChange={ onChangeValue }
 				aria-describedby={
 					describedby.length > 0
@@ -57,18 +59,23 @@ const CheckboxControl = (
 				required={ !!required ? true : undefined }
 				ref={ ref }
 				{ ...props }
-			/>
-			<label
-				className="c-checkbox-control__label"
-				htmlFor={ id }
 			>
-				{ label }
-				{ !!required && (
-					<span className="c-control__required"></span>
-				) }
-			</label>
+				{ options.map((option, index) => {
+					const key = option.id || option.value;
+
+					return (
+						<option
+							key={ key }
+							value={ option.value }
+							disabled={ option.disabled }
+						>
+							{ option.label }
+						</option>
+					);
+				}) }
+			</select>
 		</BaseControl>
 	);
 }
 
-export default forwardRef(CheckboxControl);
+export default forwardRef(SelectControl);

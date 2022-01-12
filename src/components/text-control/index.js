@@ -23,7 +23,7 @@ const TextControl = (
 
 	const onChangeValue = (event) => onChange(event.target.value);
 
-	const describedby = []
+	const describedby = [];
 
 	if (!!error) {
 		describedby.push(id + '__error');
