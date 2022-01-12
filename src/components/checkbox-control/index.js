@@ -1,25 +1,26 @@
 import React, { forwardRef } from 'react';
 
-import { BaseControl } from '../';
+import { BaseControl, VisuallyHidden } from '../';
 import { useInstanceId } from '../../hooks/';
+import { classnames } from '../../utils/';
 
-const TextControl = (
+import './index.scss';
+
+const CheckboxControl = (
 	{
 		label,
-		hideLabelFromVision,
-		value,
+		checked,
 		help,
 		error,
 		required,
 		className,
 		onChange,
-		type = 'text',
 		...props
 	},
 	ref
 ) => {
-	const instanceId = useInstanceId(TextControl);
-	const id = `text-control-${ instanceId }`;
+	const instanceId = useInstanceId(CheckboxControl);
+	const id = `checkbox-control-${ instanceId }`;
 
 	const onChangeValue = (event) => onChange(event.target.value);
 
@@ -36,18 +37,16 @@ const TextControl = (
 	return (
 		<BaseControl
 			id={ id }
-			className={ className }
-			label={ label }
-			hideLabelFromVision={ hideLabelFromVision }
+			className={ classnames(className, 'c-checkbox-control') }
 			help={ help }
 			required={ required }
 			error={ error }
 		>
 			<input
-				className="c-control__input"
-				type={ type }
+				className="c-checkbox-control__input"
+				type="checkbox"
 				id={ id }
-				value={ value }
+				checked={ checked }
 				onChange={ onChangeValue }
 				aria-describedby={
 					describedby.length > 0
@@ -59,8 +58,17 @@ const TextControl = (
 				ref={ ref }
 				{ ...props }
 			/>
+			<label
+				className="c-checkbox-control__label"
+				htmlFor={ id }
+			>
+				{ label }
+				{ !!required && (
+					<span className="c-control__required"></span>
+				) }
+			</label>
 		</BaseControl>
 	);
 }
 
-export default forwardRef(TextControl);
+export default forwardRef(CheckboxControl);

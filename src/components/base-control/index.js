@@ -13,7 +13,7 @@ const BaseControl = ({
 	hideLabelFromVision,
 	help,
 	error,
-	isRequired,
+	required,
 	className,
 	children,
 }) => {
@@ -36,12 +36,8 @@ const BaseControl = ({
 							htmlFor={ id }
 						>
 							{ label }
-							{ !!isRequired && (
-								<span className="c-control__required">
-									<VisuallyHidden as="span">
-										Required
-									</VisuallyHidden>
-								</span>
+							{ !!required && (
+								<span className="c-control__required"></span>
 							) }
 						</label>
 					)

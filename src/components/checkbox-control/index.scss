@@ -1,0 +1,13 @@
+.c-checkbox-control {
+	padding-left: calc(1rem + 6px);
+}
+
+.c-checkbox-control__input {
+	width: 1rem;
+	height: 1rem;
+	margin: 0 6px 0 calc(-1rem - 6px);
+}
+
+.c-checkbox-control__label {
+	font-weight: var(--font--weight--normal);
+}
