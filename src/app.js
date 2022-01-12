@@ -10,6 +10,7 @@ import {
 	RadioControl,
 	SelectControl,
 	TextControl,
+	TextareaControl,
 } from './components';
 
 const App = () => {
@@ -66,6 +67,12 @@ const App = () => {
 					{ label: __('Ontario'), value: 'ON' },
 				] }
 				onChange={ (value) => console.log(value) }
+			/>
+			<TextareaControl
+				label={ __('Textarea') }
+				value={ __('The children groped their way back to the spring. The weary time dragged on; they slept again, and awoke famished and woe-stricken. Tom believed it must be Tuesday by this time.') }
+				onChange={ (value) => console.log(value) }
+				rows={ 8 }
 			/>
 			<Fieldset
 				label={ __('Checkbox Group') }
