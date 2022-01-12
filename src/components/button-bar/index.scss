@@ -1,0 +1,13 @@
+.c-button-bar {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: -8px;
+
+	> * {
+		margin-bottom: 8px;
+
+		&:not(:last-child) {
+			margin-right: 8px;
+		}
+	}
+}

@@ -5,6 +5,8 @@ import './app.scss';
 
 import { __ } from './i18n';
 import {
+	Button,
+	ButtonBar,
 	CheckboxControl,
 	Fieldset,
 	RadioControl,
@@ -19,6 +21,44 @@ const App = () => {
 	return (
 		<>
 			<h1>{ __('Component Kit—React') }</h1>
+			<ButtonBar>
+				<Button
+					variant="primary"
+					onClick={ () => console.log('clicked') }
+				>
+					{ __('Primary Button') }
+				</Button>
+				<Button
+					onClick={ () => console.log('clicked') }
+				>
+					{ __('Regular Button') }
+				</Button>
+				<Button
+					isDestructive={ true }
+					onClick={ () => console.log('clicked') }
+				>
+					{ __('Destructive Button') }
+				</Button>
+				<Button
+					variant="link"
+					onClick={ () => console.log('clicked') }
+				>
+					{ __('Link Button') }
+				</Button>
+				<Button
+					variant="link"
+					isDestructive={ true }
+					onClick={ () => console.log('clicked') }
+				>
+					{ __('Reset') }
+				</Button>
+				<Button
+					onClick={ () => console.log('clicked') }
+					disabled={ true }
+				>
+					{ __('Disabled Button') }
+				</Button>
+			</ButtonBar>
 			<TextControl
 				label={ __('Text Control') }
 				help={ __('This is help text for a text control.') }

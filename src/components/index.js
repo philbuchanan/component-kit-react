@@ -1,4 +1,6 @@
 export { default as BaseControl } from './base-control';
+export { default as Button } from './button';
+export { default as ButtonBar } from './button-bar';
 export { default as CheckboxControl } from './checkbox-control';
 export { default as Fieldset } from './fieldset';
 export { default as RadioControl } from './radio-control';
